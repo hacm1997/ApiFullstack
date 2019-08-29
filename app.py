@@ -4,10 +4,8 @@ It contains the definition of routes and views for the application.
 """
 #Importacion de librerias a usar
 from flask import Flask, request, render_template, session, redirect, jsonify, g
-import numpy as np
 import pandas as pd
 import sqlalchemy as db
-import sqlite3
 #Definicion de la app flask
 app = Flask(__name__)
 #Se define el inicio para la base de datos con la ruta
