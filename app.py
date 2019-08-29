@@ -1,7 +1,3 @@
-"""
-This script runs the application using a development server.
-It contains the definition of routes and views for the application.
-"""
 #Importacion de librerias a usar
 from flask import Flask, request, render_template, session, redirect, jsonify, g
 import pandas as pd
