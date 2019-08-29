@@ -2,19 +2,17 @@ FROM python:3.7.3
 #imagen base
 FROM alpine:3.5
 
+MAINTAINER Heiner Acosta
+
 #Instala python - pip
 RUN apk add --update py-pip
 
-#Modulos de python
-COPY requirements.txt /ApiFullstack
-RUN pip install --no-cache-dir -r requirements.txt
+COPY app /app
 
-#Copiar archivos requeridos
-COPY app.py /ApiFullstack
-COPY templates/index.html /templates
+WORKDIR /app
 
-#Puerto
-EXPOSE 5000
+RUN pip install -r requirements.txt
 
-#Ejecutar app
-CMD ["Python", "app.py"]
+EXPOSE 80
+
+CMD ["python", "app.py"]
