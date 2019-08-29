@@ -15,19 +15,12 @@ connection = engine.connect()
 metadata = db.MetaData()
 #Se "refleja" o copia los datos de la BD para poder usarlos
 users = db.Table('users', metadata, autoload=True, autoload_with=engine)
-#print(users.columns.keys())
-#print(repr(metadata.tables['users']))
 query = db.select([users])
 ResultProxy = connection.execute(query)
 ResultSet = ResultProxy.fetchall()
-#print(ResultSet)
 #Se definen los datos de la BD en pandas para mostrarlos de manera mas ordenada
 df = pd.DataFrame(ResultSet)
 df.columns = ResultSet[0].keys()
-#print(df)
-#df.to_html('pandas.html')
-#print(df)
-#Definicion de funcion para la ruta /users/list
 @app.route('/users/list', methods=("POST", "GET"))
 def html_table():
 
