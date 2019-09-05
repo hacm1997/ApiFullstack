@@ -1,16 +1,15 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Users</title>
-</head>
-<body>
-<h1>List of Users</h1>
-<table border="1px">
-    {% for table in tables %}
-                {{titles[loop.index]}}
-                {{ table|safe }}
-    {% endfor %}
-</table>
-</body>
-</html>
+{% extends "layout.html" %}
+
+{% block content %}
+
+<div class="jumbotron">
+    <h1>List of Users</h1>
+    <table border: 1px>
+        {% for table in tables %}
+        {{titles[loop.index]}}
+        {{ table|safe }}
+        {% endfor %}
+    </table>
+</div>
+
+{% endblock %}
